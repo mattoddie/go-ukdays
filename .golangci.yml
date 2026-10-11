@@ -1,0 +1,22 @@
+version: "2"
+
+linters:
+  settings:
+    errcheck:
+      # The command-line tool writes to the terminal; a failed write there
+      # has nowhere better to be reported.
+      exclude-functions:
+        - fmt.Fprint
+        - fmt.Fprintf
+        - fmt.Fprintln
+  enable:
+    - errorlint
+    - gocritic
+    - misspell
+    - revive
+    - unconvert
+
+formatters:
+  enable:
+    - gofumpt
+    - goimports
