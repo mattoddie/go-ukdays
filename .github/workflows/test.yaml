@@ -34,8 +34,10 @@ jobs:
       - name: Run vet
         run: go vet ./...
 
+      # Go 1.22's linker leaves out LC_UUID, which macOS 26 needs to load
+      # race-enabled binaries, so that job links with the system linker.
       - name: Run tests
-        run: go test -race ./...
+        run: go test -race ${{ matrix.go == '1.22' && matrix.os == 'macos-latest' && '-ldflags=-linkmode=external' || '' }} ./...
 
   lint:
     name: Lint
