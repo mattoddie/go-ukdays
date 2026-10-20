@@ -46,10 +46,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
-          git commit -am "Update bank holidays from GOV.UK"
+          git commit -am "chore(data): update bank holidays from GOV.UK"
           git push --force origin "$branch"
           if ! gh pr view "$branch" --json state --jq .state 2>/dev/null | grep -q OPEN; then
             gh pr create --head "$branch" \
-              --title "Update bank holidays from GOV.UK" \
+              --title "chore(data): update bank holidays from GOV.UK" \
               --body "GOV.UK's list of bank holidays has changed. Check the diff, add a CHANGELOG entry, then close and reopen this pull request so the checks run (pull requests opened by GitHub Actions don't start them)."
           fi

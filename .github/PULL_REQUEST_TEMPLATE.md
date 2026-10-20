@@ -1,3 +1,5 @@
+<!-- Title: use Conventional Commits, e.g. "fix(rules): match GOV.UK for 2030". It becomes the commit on main. -->
+
 ## What does this change?
 
 <!-- Describe the change and why it's needed. Link any related issue, e.g. "Fixes #12". -->
